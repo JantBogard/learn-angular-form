@@ -3,6 +3,14 @@
     <div class="d-flex flex-column form-group">
       <label>Name</label>
       <input formControlName="nom" type="text">
+      <div *ngIf="nom?.errors && nom.touched">
+        <p class="error" *ngIf="nom?.errors['notPaul']">
+          Le nom paul n'est pas autorise
+        </p>
+        <p class="error" *ngIf="nom?.errors['required']">
+          Vous devez renseigner un nom
+        </p>
+      </div>
     </div>
     <div class="d-flex flex-column form-group">
       <label>Email</label>
@@ -11,10 +19,15 @@
     <div class="d-flex flex-column form-group">
       <label>Mot de passe</label>
       <input formControlName="password" type="password">
+      <div *ngIf="password?.errors && password.touched">
+        <p class="error" *ngIf="password?.errors['notMatching']">
+          Les mots de passe ne correspondent pas
+        </p>
+      </div>
     </div>
     <div class="d-flex flex-column form-group">
       <label>Confirm</label>
-      <input type="password">
+      <input #confirmation type="password">
     </div>
     <button type="submit" class="btn btn-primary">Valider</button>
   </form>
