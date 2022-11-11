@@ -8,11 +8,19 @@
 
   input {
     border: 1px solid var(--lightgray);
-    padding: 8px 16px;
-    border-radius: 5px;
+    padding: 16px 24px;
+    border-radius: 8px;
   }
 }
 
 .error {
   color: red;
+}
+
+.ng-valid.ng-touched {
+  border-color: green !important;
+}
+
+.ng-invalid.ng-touched {
+  border-color: red !important;
 }

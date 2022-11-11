@@ -12,17 +12,19 @@
         </p>
       </div>
     </div>
-    <div class="d-flex flex-column form-group">
-      <label>Email</label>
-      <input formControlName="email" type="email">
-    </div>
-    <div class="d-flex flex-column form-group">
-      <label>Mot de passe</label>
-      <input formControlName="password" type="password">
-      <div *ngIf="password?.errors && password.touched">
-        <p class="error" *ngIf="password?.errors['notMatching']">
-          Les mots de passe ne correspondent pas
-        </p>
+    <div formGroupName="login">
+      <div class="d-flex flex-column form-group">
+        <label>Email</label>
+        <input formControlName="email" type="email">
+      </div>
+      <div class="d-flex flex-column form-group">
+        <label>Mot de passe</label>
+        <input formControlName="password" type="password">
+        <div *ngIf="password?.errors && password.touched">
+          <p class="error" *ngIf="password?.errors['notMatching']">
+            Les mots de passe ne correspondent pas
+          </p>
+        </div>
       </div>
     </div>
     <div class="d-flex flex-column form-group">
