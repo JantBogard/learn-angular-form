@@ -3,33 +3,19 @@
     <div class="d-flex flex-column form-group">
       <label>Name</label>
       <input formControlName="nom" type="text">
-      <div *ngIf="nom?.errors && nom.touched">
-        <p class="error" *ngIf="nom?.errors['notPaul']">
-          Le nom paul n'est pas autorise
-        </p>
-        <p class="error" *ngIf="nom?.errors['required']">
-          Vous devez renseigner un nom
-        </p>
-      </div>
-    </div>
-    <div formGroupName="login">
-      <div class="d-flex flex-column form-group">
-        <label>Email</label>
-        <input formControlName="email" type="email">
-      </div>
-      <div class="d-flex flex-column form-group">
-        <label>Mot de passe</label>
-        <input formControlName="password" type="password">
-        <div *ngIf="password?.errors && password.touched">
-          <p class="error" *ngIf="password?.errors['notMatching']">
-            Les mots de passe ne correspondent pas
-          </p>
-        </div>
-      </div>
     </div>
     <div class="d-flex flex-column form-group">
-      <label>Confirm</label>
-      <input #confirmation type="password">
+      <label>Email</label>
+      <input formControlName="email" type="email">
+    </div>
+    <div formArrayName="hobbies" class="d-flex flex-column form-group">
+      <label>Hobby</label>
+      <button (click)="addHobby()" class="btn btn-primary">Ajouter hobby</button>
+      <input class="m-10" [formControlName]="index" *ngFor="let hobby of hobbies.controls; let index=index" type="text">
+    </div>
+    <div class="d-flex flex-column form-group">
+      <label>Mot de passe</label>
+      <input formControlName="password" type="password">
     </div>
     <button type="submit" class="btn btn-primary">Valider</button>
   </form>
