@@ -14,6 +14,16 @@
       <input class="m-10" [formControlName]="index" *ngFor="let hobby of hobbies.controls; let index=index" type="text">
     </div>
     <div class="d-flex flex-column form-group">
+      <label>
+        Male
+        <input formControlName="gender" type="radio" value="male">
+      </label>
+      <label>
+        Female
+        <input formControlName="gender" type="radio" value="female">
+      </label>
+    </div>
+    <div class="d-flex flex-column form-group">
       <label>Mot de passe</label>
       <input formControlName="password" type="password">
     </div>
